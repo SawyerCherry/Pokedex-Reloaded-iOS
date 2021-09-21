@@ -9,7 +9,12 @@ import Foundation
 
 
 struct Pokemon: Decodable, Identifiable {
-    let id: Int
+    enum CodingKeys: String, CodingKey {
+        case name
+        case imageURL = "imageUrl"
+        case id
+    }
+    var id = Int.random(in: 0...100)
     let name: String
     let imageURL: String
 
